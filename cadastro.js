@@ -20,7 +20,7 @@ let usuarios = [
   },
 ];
 
-// FUNÇÃO PARA PEGAR OS DADOS DO FORMULÁRIO
+// FUNÇÃO PARA PEGAR OS DADOS DIGITADOS DO FORMULÁRIO
 function getFormData() {
   // a função cadastrar puxa aqui
   return {
@@ -57,11 +57,11 @@ function cadastrar() {
   if (!novoUsuario.nome || !novoUsuario.cpf) {
     alert("Nome e CPF são obrigatórios");
     return;
-  }
+  } // tem que ter pelo menos NOME e CPF para cadstrar
 
   // VERIFICA SE JÁ EXISTE UM USUÁRIO COM O MESMO CPF
   const existe = usuarios.find((u) => u.cpf === novoUsuario.cpf);
-
+  // .find() percorre o array pra saber se tem cpf igual
   if (existe) {
     alert("Usuário com esse CPF já existe");
     return;
@@ -92,7 +92,7 @@ function listar() {
               </div>
             </div>
           </div>
-        `;
+        `; // o += é para adicionar um card novo.
   });
 }
 
@@ -109,7 +109,6 @@ function editar() {
 
   // PREENCHE O FORMULÁRIO COM OS DADOS ATUAIS
   setFormData(usuario);
-
   const novoNome = prompt("Novo nome:", usuario.nome);
   const novaIdade = prompt("Nova idade:", usuario.idade);
   const novaFoto = prompt("Nova foto URL:", usuario.foto);
